@@ -93,4 +93,4 @@ function SalesCard() {
         </div>)
 }
 
-export default SalesCard
+export default SalesCard;
