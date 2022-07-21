@@ -6,7 +6,7 @@ function Header() {
         <header>
             <div className="logo-container">
                 <img src={logo} alt="DSMeta" />
-                <h1>Registro de Divergências</h1>
+                <h1>Registro de Vendas</h1>
                 <p>
                     Desenvolvido por
                     <a href="https://github.com/Lucosan">Lucca Santos</a>
