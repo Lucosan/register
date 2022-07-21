@@ -17,11 +17,16 @@ function SalesCard() {
     const [sales, setSales] = useState<Sale[]>([]);
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/sales`)
+
+        const minD = minDate.toISOString().slice(0,10);
+        const maxD = maxDate.toISOString().slice(0,10);
+
+
+        axios.get(`${BASE_URL}/sales?minDate=${minD}&maxDate=${maxD}`)
             .then(response => {
                 setSales(response.data.content);
             });
-    }, [])
+    }, [minDate, maxDate]);
 
     return (
         <div className="card">
@@ -67,10 +72,10 @@ function SalesCard() {
                                     <td>{sale.sellerName}</td>
                                     <td className="show992">{sale.visited}</td>
                                     <td className="show992">{sale.deals}</td>
-                                    <td>{sale.amount}</td>
+                                    <td>R$ {sale.amount},00</td>
                                     <td>
                                         <div className="red-btn-container">
-                                            <NotificationButton />
+                                            <NotificationButton saleId={sale.id} />
                                         </div>
                                     </td>
                                 </tr>
